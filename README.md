@@ -19,4 +19,3 @@ It then performs the following tasks:
 
 The code also includes similar code for managing data of patients, but it is commented out.
 
-Overall, the code appears to be well-structured and organized, with separate functions for each task, such as searching, updating, and deleting records. 
