@@ -895,6 +895,62 @@ int main()
     DisplayP(first);
 */
 
-
- return 0;
+    string Name;
+    string Department;
+    string Type;
+    string Period;
+    string Feedback;
+    string Phone;
+    string Email;
+    string Number;
+    cout<<"Adding anew doctor to the given list"<<endl;
+    cout<<"Name of the doctor:";
+    getline(cin>>ws, Name);
+    cout<<"Department of the doctor:";
+    getline(cin>>ws,Department);
+    cout<<"Type of employment:";
+    getline(cin>>ws,Type);
+    cout<<"Period of availability:";
+    getline(cin>>ws,Period);
+    cout<<"Feedback Rating:";
+    getline(cin>>ws,Feedback);
+    cout<<"Phone No:";
+    getline(cin>>ws,Phone);
+    cout<<"Email Id:";
+    getline(cin>>ws,Email);
+    cout<<"Number of patients:";
+    getline(cin>>ws,Number);
+    if(NameSearch(first,Name)==NULL)
+    SortedInsert(first,Name,Department,Type,Period,Feedback,Phone,Email,Number);
+    Display(first);
+    cout<<"Delete:";
+    getline(cin>>ws, Name);
+    Display(first);
+    Delete(first,Name);
+    Display(first);
+    cout<<"Update:";
+    getline(cin>>ws, Name);
+    Update(Name);
+    Display(first);
+    Search();
+    cout<<"Appointment:Enter Department of doctor you need"<<endl;
+    getline(cin>>ws, Department);
+    SearchDepartment(first,Department);
+    cout<<"Enter Name of doctor you want"<<endl;
+    getline(cin>>ws, Name);
+    cout<<"Appointment Done"<<endl<<"Appointed Doctor is"<<endl;
+    SearchName(first,Name);
+    cout<<"Enter feedback rating"<<endl;
+    getline(cin>>ws, Feedback);
+    struct Node *t;
+    t=NameSearch(first,Name);
+    int feedback=stoi(t->Feedback);
+    int number=stoi(t->Number);
+    int newfeedback=stoi(Feedback);
+    float calc=(feedback*number+newfeedback)/(float)(number+1);
+    t-> Feedback=to_string(calc);
+    t-> Number=to_string(number + 1);
+    cout<<"Data of Doctor after updating feedback and no.of patients"<<endl;
+    SearchName(first,Name);
+    return 0;
 }
